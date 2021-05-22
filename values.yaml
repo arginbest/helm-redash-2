@@ -292,12 +292,12 @@ server:
 
   # server.resources -- Server resource requests and limits [ref](http://kubernetes.io/docs/user-guide/compute-resources/)
   resources:
-    limits:
-      cpu: 500m
-      memory: 1000Mi
-    requests:
-      cpu: 100m
-      memory: 200Mi
+    # limits:
+    #   cpu: 500m
+    #   memory: 3Gi
+    # requests:
+    #   cpu: 100m
+    #  memory: 500Mi
 
   # server.podSecurityContext -- Security contexts for server pod assignment [ref](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
   podSecurityContext: {}
@@ -355,12 +355,12 @@ adhocWorker:
 
   # adhocWorker.resources -- Ad-hoc worker resource requests and limits [ref](http://kubernetes.io/docs/user-guide/compute-resources/)
   resources:
-    limits:
-      cpu: 300m
-      memory: 500Mi
-    requests:
-      cpu: 100m
-      memory: 200Mi
+    # limits:
+    #   cpu: 500m
+    #   memory: 3Gi
+    # requests:
+    #   cpu: 100m
+    #  memory: 500Mi
 
   # adhocWorker.podSecurityContext -- Security contexts for ad-hoc worker pod assignment [ref](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
   podSecurityContext: {}
@@ -390,12 +390,12 @@ scheduledWorker:
 
   # scheduledWorker.resources -- Scheduled worker resource requests and limits [ref](http://kubernetes.io/docs/user-guide/compute-resources/)
   resources:
-    limits:
-      cpu: 200m
-      memory: 500Mi
-    requests:
-      cpu: 100m
-      memory: 200Mi
+    # limits:
+    #   cpu: 500m
+    #   memory: 3Gi
+    # requests:
+    #   cpu: 100m
+    #  memory: 500Mi
 
   # scheduledWorker.podSecurityContext -- Security contexts for scheduled worker pod assignment [ref](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
   podSecurityContext: {}
@@ -419,12 +419,12 @@ hookInstallJob:
   ttlSecondsAfterFinished: 600
   # hookInstallJob.resources -- Scheduled worker resource requests and limits [ref](http://kubernetes.io/docs/user-guide/compute-resources/)
   resources:
-    limits:
-      cpu: 200m
-      memory: 500Mi
-    requests:
-      cpu: 100m
-      memory: 300Mi
+  # limits:
+  #   cpu: 500m
+  #   memory: 3Gi
+  # requests:
+  #   cpu: 100m
+  #  memory: 500Mi
 
   # hookInstallJob.podSecurityContext -- Security contexts for scheduled worker pod assignment [ref](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
   podSecurityContext: {}
@@ -448,12 +448,12 @@ hookUpgradeJob:
   ttlSecondsAfterFinished: 600
   # hookUpgradeJob.resources -- Scheduled worker resource requests and limits [ref](http://kubernetes.io/docs/user-guide/compute-resources/)
   resources:
-    limits:
-      cpu: 200m
-      memory: 500Mi
-    requests:
-      cpu: 100m
-      memory: 300Mi
+  # limits:
+  #   cpu: 500m
+  #   memory: 3Gi
+  # requests:
+  #   cpu: 100m
+  #  memory: 500Mi
 
   # hookUpgradeJob.podSecurityContext -- Security contexts for scheduled worker pod assignment [ref](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
   podSecurityContext: {}
@@ -506,7 +506,7 @@ postgresql:
     # postgresql.persistence.accessMode -- Use PostgreSQL volume as ReadOnly or ReadWrite
     accessMode: ReadWriteOnce
     # postgresql.persistence.size -- PVC Storage Request size for PostgreSQL volume
-    size: 1Gi
+    size: 10Gi
     # postgresql.persistence.existingClaim -- Provide an existing PostgreSQL PersistentVolumeClaim
     # existingClaim: ""
 

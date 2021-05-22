@@ -42,7 +42,7 @@ image:
 ## Cluster settings
 cluster:
   enabled: true
-  slaveCount: 1
+  slaveCount: 2
 
 ## Use redis sentinel in the redis pod. This will disable the master and slave services and
 ## create one redis service with ports to the sentinel and the redis instances
@@ -109,13 +109,10 @@ sentinel:
   customReadinessProbe: {}
   ## Redis Sentinel resource requests and limits
   ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
-  resources:
-    requests:
-      memory: 200Mi
-      cpu: 100m
-    limits:
-      memory: 500Mi
-      cpu: 300m
+  # resources:
+  #   requests:
+  #     memory: 256Mi
+  #     cpu: 100m
   ## Redis Sentinel Service properties
   service:
     ##  Redis Sentinel Service type
@@ -285,13 +282,10 @@ master:
 
   ## Redis Master resource requests and limits
   ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
-  resources:
-    requests:
-      memory: 200Mi
-      cpu: 100m
-    limits:
-      memory: 500Mi
-      cpu: 300m
+  # resources:
+  #   requests:
+  #     memory: 256Mi
+  #     cpu: 100m
   ## Use an alternate scheduler, e.g. "stork".
   ## ref: https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/
   ##
@@ -395,7 +389,7 @@ master:
     # storageClass: "-"
     accessModes:
       - ReadWriteOnce
-    size: 1Gi
+    size: 8Gi
     ## Persistent Volume selectors
     ## https://kubernetes.io/docs/concepts/storage/persistent-volumes/#selector
     matchLabels: {}
@@ -535,13 +529,10 @@ slave:
   customReadinessProbe: {}
 
   ## Redis slave Resource
-  resources:
-    requests:
-      memory: 200Mi
-      cpu: 100m
-    limits:
-      memory: 500Mi
-      cpu: 300m
+  # resources:
+  #   requests:
+  #     memory: 256Mi
+  #     cpu: 100m
 
   ## Redis slave selectors and tolerations for pod assignment
   # nodeSelector: {"beta.kubernetes.io/arch": "amd64"}
@@ -580,7 +571,7 @@ slave:
     # storageClass: "-"
     accessModes:
       - ReadWriteOnce
-    size: 1Gi
+    size: 8Gi
     ## Persistent Volume selectors
     ## https://kubernetes.io/docs/concepts/storage/persistent-volumes/#selector
     matchLabels: {}
@@ -731,14 +722,11 @@ volumePermissions:
     ##
     # pullSecrets:
     #   - myRegistryKeySecretName
-  resources:
-    requests:
-      memory: 128Mi
-      cpu: 100m
-    limits:
-      memory: 500Mi
-      cpu: 300m
-      
+  resources: {}
+  # resources:
+  #   requests:
+  #     memory: 128Mi
+  #     cpu: 100m
 
 ## Redis config file
 ## ref: https://redis.io/topics/config
@@ -765,13 +753,11 @@ sysctlImage:
   # pullSecrets:
   #   - myRegistryKeySecretName
   mountHostSys: false
-  # resources: []
+  resources: {}
+  # resources:
   #   requests:
   #     memory: 128Mi
-  #     cpu: "100m"
-  #   limits:
-  #     memory: 700Mi
-  #     cpu: 400m
+  #     cpu: 100m
 
 ## PodSecurityPolicy configuration
 ## ref: https://kubernetes.io/docs/concepts/policy/pod-security-policy/
